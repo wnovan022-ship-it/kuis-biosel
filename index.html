@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biologi Sel: Struktur & Fungsi - Modul Lengkap</title>
+  
+  <!-- Font Modern: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-navy: #0f172a;
+      --secondary-navy: #1e293b;
+      --accent-teal: #0d9488;
+      --accent-teal-light: #ccfbf1;
+      --accent-orange: #ea580c;
+      --accent-orange-light: #ffedd5;
+      --text-main: #334155;
+      --text-muted: #64748b;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      background-color: var(--bg-page);
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1.25rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary-navy);
+      text-decoration: none;
+    }
+
+    .logo svg {
+      stroke: var(--accent-teal);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.35rem;
+    }
+
+    .nav-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.45rem 0.65rem;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      color: var(--accent-teal);
+      background-color: var(--accent-teal-light);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary-navy);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 780px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: rgba(13, 148, 136, 0.2);
+      color: #2dd4bf;
+      border: 1px solid rgba(45, 212, 191, 0.35);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 1.02rem;
+    }
+
+    /* Modul Konten */
+    .content-area {
+      padding: 2.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .chapter-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chapter-header {
+      margin-bottom: 1.2rem;
+    }
+
+    .chapter-number {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--accent-orange);
+      letter-spacing: 0.06em;
+    }
+
+    .chapter-header h2 {
+      font-size: 1.55rem;
+      color: var(--primary-navy);
+      margin-top: 0.2rem;
+    }
+
+    .intro-text {
+      color: var(--text-main);
+      margin-bottom: 1.5rem;
+      font-size: 0.98rem;
+    }
+
+    /* Glosarium */
+    .glossary-term {
+      border-bottom: 2px dashed var(--accent-teal);
+      color: var(--accent-teal);
+      cursor: help;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .glossary-tooltip {
+      position: fixed;
+      display: none;
+      background: var(--primary-navy);
+      color: #ffffff;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      line-height: 1.45;
+      max-width: 280px;
+      box-shadow: var(--shadow-md);
+      z-index: 1000;
+      pointer-events: none;
+    }
+
+    /* Visual Diagram */
+    .visual-diagram-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .diagram-header {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--secondary-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .svg-wrapper {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+    }
+
+    .responsive-svg {
+      width: 100%;
+      max-height: 200px;
+      display: block;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+
+    /* Tabel Komparasi */
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 1.75rem;
+    }
+
+    .table-container h3 {
+      font-size: 1.1rem;
+      color: var(--primary-navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    .data-table th, .data-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .data-table th {
+      background-color: #f1f5f9;
+      color: var(--primary-navy);
+      font-weight: 600;
+    }
+
+    .data-table tbody tr:hover {
+      background-color: #f8fafc;
+    }
+
+    /* Kuis Interaktif */
+    .quiz-section {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-teal);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .quiz-section h3 {
+      color: var(--primary-navy);
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .quiz-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .quiz-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .quiz-question {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--primary-navy);
+      margin-bottom: 0.85rem;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .quiz-opt {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      padding: 0.65rem 0.95rem;
+      border-radius: var(--radius-md);
+      font-size: 0.85rem;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      font-family: inherit;
+    }
+
+    .quiz-opt:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-opt.correct {
+      background-color: var(--accent-teal-light);
+      border-color: var(--accent-teal);
+      color: #0f766e;
+      font-weight: 600;
+    }
+
+    .quiz-opt.wrong {
+      background-color: #fee2e2;
+      border-color: #ef4444;
+      color: #b91c1c;
+    }
+
+    .quiz-feedback {
+      margin-top: 0.75rem;
+      font-size: 0.83rem;
+      font-weight: 500;
+      padding: 0.6rem 0.85rem;
+      border-radius: 6px;
+    }
+
+    .quiz-feedback.success {
+      background-color: var(--accent-teal-light);
+      color: #0f766e;
+    }
+
+    .quiz-feedback.error {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+
+    /* Bagian Esai */
+    .essay-section {
+      margin-top: 1.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .essay-toggle {
+      width: 100%;
+      background: #f1f5f9;
+      padding: 0.85rem 1.25rem;
+      font-weight: 600;
+      color: var(--secondary-navy);
+      text-align: left;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .essay-content {
+      display: none;
+      background: #ffffff;
+      padding: 1.25rem;
+    }
+
+    .essay-content.open {
+      display: block;
+    }
+
+    .essay-list {
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-navy);
+      color: #94a3b8;
+      padding: 1.75rem 0;
+      font-size: 0.85rem;
+      text-align: center;
+      border-top: 1px solid var(--secondary-navy);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .chapter-card {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigasi -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line></svg>
+        <span>BioSel Edu</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#bab1" class="nav-item active">1. Membran</a>
+        <a href="#bab2" class="nav-item">2. Permukaan</a>
+        <a href="#bab3" class="nav-item">3. Ekstrasel</a>
+        <a href="#bab4" class="nav-item">4. Endomembran</a>
+        <a href="#bab5" class="nav-item">5. Lisosom</a>
+        <a href="#bab6" class="nav-item">6. Protein</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section class="hero">
+    <div class="container hero-content">
+      <span class="badge">Platform Pembelajaran Terpadu</span>
+      <h1>Biologi Sel: Struktur & Fungsi</h1>
+      <p>Modul interaktif komprehensif mencakup 6 bab materi dengan 90 latihan soal interaktif, visualisasi diagram biologis, tabel komparatif, dan bank esai ilmiah.</p>
+    </div>
+  </section>
+
+  <!-- Konten Utama -->
+  <main class="container content-area">
+
+    <!-- BAB 1 -->
+    <section id="bab1" class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-number">Bab 01</span>
+        <h2>Membran Sel & Transpor Lintas Membran</h2>
+      </div>
+      <p class="intro-text">
+        Membran plasma berfungsi sebagai sawar permeabilitas selektif dinamis yang mengendalikan gradien elektrokimia seluler, difasilitasi oleh protein kanal dan transporter aktif terpasang.
+      </p>
+
+      <div class="visual-diagram-card">
+        <div class="diagram-header">Diagram Transpor Terpasang (Symport vs Antiport)</div>
+        <div class="svg-wrapper">
+          <svg viewBox="0 0 600 180" class="responsive-svg">
+            <rect x="20" y="60" width="560" height="60" rx="6" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+            <text x="300" y="95" text-anchor="middle" fill="#64748b" font-weight="600" font-size="12">LIPID BILAYER (MEMBRAN PLASMA)</text>
+            <!-- Symport -->
+            <rect x="130" y="45" width="80" height="90" rx="12" fill="#0284c7"/>
+            <text x="170" y="35" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="13">Symport</text>
+            <path d="M 150 15 L 150 155" stroke="#0ea5e9" stroke-width="3"/>
+            <polygon points="145,145 150,160 155,145" fill="#0ea5e9"/>
+            <path d="M 190 15 L 190 155" stroke="#f97316" stroke-width="3"/>
+            <polygon points="185,145 190,160 195,145" fill="#f97316"/>
+            <!-- Antiport -->
+            <rect x="390" y="45" width="80" height="90" rx="12" fill="#0f766e"/>
+            <text x="430" y="35" text-anchor="middle" fill="#0f766e" font-weight="700" font-size="13">Antiport</text>
+            <path d="M 410 15 L 410 155" stroke="#0ea5e9" stroke-width="3"/>
+            <polygon points="405,145 410,160 415,145" fill="#0ea5e9"/>
+            <path d="M 450 155 L 450 15" stroke="#f97316" stroke-width="3"/>
+            <polygon points="445,25 450,10 455,25" fill="#f97316"/>
+          </svg>
+        </div>
+        <p class="diagram-caption">Gradien ion Na⁺ sekunder menggerakkan transpor molekul glukosa melalui mekanisme <span class="glossary-term" data-def="Protein pembawa yang mentranspor dua zat berbeda melintasi membran ke arah yang sama secara bersamaan.">simport</span>.</p>
+      </div>
+
+      <div class="table-container">
+        <h3>Perbandingan Tipe Transpor Membran</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Difusi Sederhana</th>
+              <th>Difusi Terfasilitasi (GLUT1/Aquaporin)</th>
+              <th>Transpor Aktif Primer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Kebutuhan Energi</td>
+              <td>Tanpa ATP (Gradien kimia)</td>
+              <td>Tanpa ATP (Gradien elektrokimia)</td>
+              <td>Hidrolisis ATP langsung</td>
+            </tr>
+            <tr>
+              <td>Fasilitator Protein</td>
+              <td>Tidak ada</td>
+              <td>Protein kanal / carrier</td>
+              <td>Pompa ATPase (cth: Na⁺/K⁺ ATPase)</td>
+            </tr>
+            <tr>
+              <td>Sifat Permeabilitas</td>
+              <td>Molekul hidrofobik & gas kecil</td>
+              <td>Zat terlarut hidrofilik polar/ion</td>
+              <td>Pemindahan melawan gradien</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kuis 15 Soal Bab 1 -->
+      <div class="quiz-section">
+        <h3>Kuis Lengkap Bab 1: Membran Sel & Transpor (15 Soal)</h3>
+        
+        <!-- Soal 1 -->
+        <div class="quiz-item" data-expl="Model Mosaik Fluida yang diajukan oleh Singer dan Nicolson (1972) memvisualisasikan membran sebagai cairan dwilapis lipid dengan protein yang tersebar merata.">
+          <p class="quiz-question">1. Model struktur membran sel yang diterima saat ini disebut model...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Model Unit Membran Robertson</button>
+            <button class="quiz-opt" data-correct="true">Model Mosaik Fluida (Fluid Mosaic Model)</button>
+            <button class="quiz-opt" data-correct="false">Model Sandwich Danielli-Davson</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="quiz-item" data-expl="Fosfolipid merupakan molekul amfipatik dominan yang menyusun kerangka struktural membran lipid bilayer.">
+          <p class="quiz-question">2. Komponen utama penyusun bilayer membran sel adalah...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Fosfolipid</button>
+            <button class="quiz-opt" data-correct="false">Trigliserida</button>
+            <button class="quiz-opt" data-correct="false">Asam nukleat</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="quiz-item" data-expl="Protein membran integral/transmembran merentang menembus seluruh ketebalan lipid bilayer.">
+          <p class="quiz-question">3. Protein membran yang menembus seluruh lapisan lipid bilayer disebut protein...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Protein perifer</button>
+            <button class="quiz-opt" data-correct="true">Protein integral (transmembran)</button>
+            <button class="quiz-opt" data-correct="false">Protein lipid-anchored</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="quiz-item" data-expl="Difusi sederhana menggerakkan zat terlarut menuruni gradien konsentrasi tanpa keterlibatan protein transporter ataupun energi metabolik.">
+          <p class="quiz-question">4. Transpor zat dari konsentrasi tinggi ke rendah tanpa bantuan protein dan energi disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Transpor aktif</button>
+            <button class="quiz-opt" data-correct="false">Endositosis</button>
+            <button class="quiz-opt" data-correct="true">Difusi sederhana</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="quiz-item" data-expl="Protein kanal (channel proteins) menyediakan koridor hidrofilik yang memungkinkan ion terhidrasi menyeberangi membran secara cepat.">
+          <p class="quiz-question">5. Protein transpor yang membentuk pori-pori hidrofilik untuk ion tertentu disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Protein kanal (ion channel)</button>
+            <button class="quiz-opt" data-correct="false">Protein pembawa (carrier)</button>
+            <button class="quiz-opt" data-correct="false">Pompa translokase</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="quiz-item" data-expl="Transpor aktif primer secara langsung memecah molekul Adenosin Trifosfat (ATP) untuk menggerakkan solut melawan gradien.">
+          <p class="quiz-question">6. Transpor aktif primer menggunakan energi langsung dari hidrolisis...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">ATP (Adenosine Triphosphate)</button>
+            <button class="quiz-opt" data-correct="false">GTP</button>
+            <button class="quiz-opt" data-correct="false">Glukosa-6-fosfat</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="quiz-item" data-expl="Pompa Na⁺/K⁺ ATPase mempertahankan asimetri ionik sel dengan memompa 3 Na⁺ ke luar dan 2 K⁺ ke dalam sitosol.">
+          <p class="quiz-question">7. Pompa Na⁺/K⁺ ATPase memompa ... ion Na⁺ keluar dan ... ion K⁺ masuk sel.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">2 Na⁺ keluar dan 3 K⁺ masuk</button>
+            <button class="quiz-opt" data-correct="true">3 Na⁺ keluar dan 2 K⁺ masuk</button>
+            <button class="quiz-opt" data-correct="false">1 Na⁺ keluar dan 1 K⁺ masuk</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="quiz-item" data-expl="Transporter GLUT1 memfasilitasi pergerakan glukosa menuruni gradien konsentrasi melalui transisi konformasi tanpa energi (difusi terfasilitasi).">
+          <p class="quiz-question">8. GLUT1 adalah contoh transporter glukosa yang bekerja melalui mekanisme...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Transpor aktif primer</button>
+            <button class="quiz-opt" data-correct="true">Difusi terfasilitasi</button>
+            <button class="quiz-opt" data-correct="false">Pinositosis</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="quiz-item" data-expl="Receptor-mediated endocytosis memanfaatkan polimer klatrin untuk membentuk vesikel berselubung saat menelan ligan spesifik.">
+          <p class="quiz-question">9. Endositosis yang melibatkan pembentukan vesikel berlapis klatrin disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Endositosis termediatori reseptor (Receptor-mediated endocytosis)</button>
+            <button class="quiz-opt" data-correct="false">Fagositosis non-spesifik</button>
+            <button class="quiz-opt" data-correct="false">Makropinositosis</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="quiz-item" data-expl="Eksositosis teregulasi memerlukan sinyal pemicu ekstraseluler, biasanya berupa lonjakan konsentrasi ion kalsium (Ca²⁺) intraseluler atau stimulasi hormon.">
+          <p class="quiz-question">10. Eksositosis konstitutif terjadi secara terus-menerus, sedangkan eksositosis regulasi dipicu oleh...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Penurunan suhu lingkungan</button>
+            <button class="quiz-opt" data-correct="true">Sinyal kimiawi spesifik / peningkatan influks ion Ca²⁺</button>
+            <button class="quiz-opt" data-correct="false">Penumpukan protein lipid di lumen</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="quiz-item" data-expl="Osmosis adalah difusi netto molekul pelarut (air) dari larutan berkonsentrasi zat terlarut rendah (hipotonik) menuju larutan berkonsentrasi tinggi (hipertonik).">
+          <p class="quiz-question">11. Osmosis adalah perpindahan air melintasi membran semipermeabel dari larutan ... ke larutan ...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Hipotonik (konsentrasi zat terlarut rendah) ke Hipertonik (tinggi)</button>
+            <button class="quiz-opt" data-correct="false">Hipertonik ke Hipotonik</button>
+            <button class="quiz-opt" data-correct="false">Isotonik ke Hipertonik</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="quiz-item" data-expl="Ketiadaan dinding sel membuat sel hewan menyerap air secara masif dalam kondisi hipotonik sehingga membengkak dan akhirnya pecah (lisis).">
+          <p class="quiz-question">12. Sel hewan yang ditempatkan dalam larutan hipotonik akan mengalami...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Krenasi (pengerutan)</button>
+            <button class="quiz-opt" data-correct="true">Lisis (pecah/mengembang hingga rusak)</button>
+            <button class="quiz-opt" data-correct="false">Plasmolisis</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="quiz-item" data-expl="Aquaporin adalah protein kanal membran tetramerik yang secara selektif memfasilitasi lalu lintas molekul air dengan laju sangat tinggi.">
+          <p class="quiz-question">13. Aquaporin adalah saluran khusus untuk transport...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Ion Natrium</button>
+            <button class="quiz-opt" data-correct="true">Air (H₂O)</button>
+            <button class="quiz-opt" data-correct="false">Glikolipid</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="quiz-item" data-expl="Gradien elektrokimia menggabungkan dua gaya penggerak transpor ion: gradien konsentrasi kimiawi dan gradien muatan voltase listrik membran.">
+          <p class="quiz-question">14. Perbedaan potensial listrik dan gradien kimia gabungan disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Gradien elektrokimia (Electrochemical gradient)</button>
+            <button class="quiz-opt" data-correct="false">Tekanan onkotik</button>
+            <button class="quiz-opt" data-correct="false">Potensial aksi</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="quiz-item" data-expl="Pada transpor aktif sekunder tipe simport (cotransport), kedua molekul yang terikat digerakkan melintasi membran ke arah yang sama.">
+          <p class="quiz-question">15. Transpor sekunder simport berarti dua zat ditranspor ke arah yang...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Sama (searah)</button>
+            <button class="quiz-opt" data-correct="false">Berlawanan</button>
+            <button class="quiz-opt" data-correct="false">Acak bergantian</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+      </div>
+
+      <!-- Bank Soal Esai Bab 1 -->
+      <div class="essay-section">
+        <button class="essay-toggle" type="button">
+          <span>Tampilkan Bank Soal Diskusi & Esai Bab 1</span>
+          <span>▼</span>
+        </button>
+        <div class="essay-content">
+          <ol class="essay-list">
+            <li>Jelaskan mengapa membran sel bersifat "selektif permeabel" dan bagaimana sifat ini penting bagi homeostasis sel!</li>
+            <li>Bandingkan mekanisme difusi terfasilitasi dan transpor aktif! Berikan masing-masing 2 contoh molekul yang ditranspor.</li>
+            <li>Gambarkan skema kerja pompa Na⁺/K⁺ ATPase dan jelaskan signifikansinya terhadap potensial membran istirahat!</li>
+            <li>Apa perbedaan antara endositosis fagositosis, pinositosis, dan endositosis mediated-receptor?</li>
+            <li>Jelaskan konsep "coupled transport" pada transpor aktif sekunder dan gradien Na⁺ dalam absorpsi glukosa!</li>
+            <li>Mengapa sel tumbuhan tidak pecah saat berada di lingkungan hipotonik sedangkan sel hewan lisis?</li>
+            <li>Apa yang dimaksud dengan "fluiditas membran" serta peran kolesterol dan asam lemak tak jenuh?</li>
+            <li>Jelaskan proses eksositosis neurotransmitter di sinapsis yang dipicu sinyal kalsium!</li>
+            <li>Bagaimana sel mengatur jumlah transporter di membrannya via internalisasi dan recycling reseptor?</li>
+            <li>Analisis kasus cystic fibrosis: jelaskan kelainan genetik protein CFTR terhadap regulasi klorida dan mukus!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAB 2 -->
+    <section id="bab2" class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-number">Bab 02</span>
+        <h2>Komponen Permukaan Sel</h2>
+      </div>
+      <p class="intro-text">
+        Permukaan sel dilengkapi mantel karbohidrat (<span class="glossary-term" data-def="Lapisan oligosakarida terikat pada glikolipid dan glikoprotein permukaan luar yang berperan dalam proteksi dan pengenalan seluler.">glikokaliks</span>) serta kompleks tautan interseluler yang menjaga integritas mekanis epitel.
+      </p>
+
+      <div class="table-container">
+        <h3>Spesifikasi Tautan Sel (Cell Junctions)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Jenis Junction</th>
+              <th>Protein Transmembran Utama</th>
+              <th>Hubungan Sitoskeleton</th>
+              <th>Fungsi Fisiologis</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tight Junction (Zonula Occludens)</td>
+              <td>Claudin, Occludin</td>
+              <td>Filamen Aktin</td>
+              <td>Menyegel ruang antar-sel (sawar paraseluler)</td>
+            </tr>
+            <tr>
+              <td>Desmosom (Macula Adherens)</td>
+              <td>Desmoglein, Desmocollin (Cadherin)</td>
+              <td>Filamen Intermediat (Keratin)</td>
+              <td>Kekuatan mekanis terhadap gaya regangan</td>
+            </tr>
+            <tr>
+              <td>Gap Junction</td>
+              <td>Connexin (Membentuk Connexon)</td>
+              <td>Tidak ada</td>
+              <td>Pertukaran ion & metabolit &lt;1 kDa langsung</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kuis 15 Soal Bab 2 -->
+      <div class="quiz-section">
+        <h3>Kuis Lengkap Bab 2: Komponen Permukaan Sel (15 Soal)</h3>
+
+        <!-- Soal 1 -->
+        <div class="quiz-item" data-expl="Glikokaliks adalah selubung karbohidrat pelindung di bagian luar membran sel yang tersusun atas rantai gula oligosakarida.">
+          <p class="quiz-question">1. Lapisan karbohidrat yang menyelimuti permukaan sel hewan disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Kapsul lendir</button>
+            <button class="quiz-opt" data-correct="true">Glikokaliks (Glycocalyx)</button>
+            <button class="quiz-opt" data-correct="false">Lamina propria</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="quiz-item" data-expl="Glikokaliks merupakan kompleks glikokonjugat yang terdiri dari glikoprotein, glikolipid, dan proteoglikan permukaan sel.">
+          <p class="quiz-question">2. Glikokaliks tersusun atas glikoprotein, glikolipid, dan...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Proteoglikan membran</button>
+            <button class="quiz-opt" data-correct="false">Asam nukleat sirkular</button>
+            <button class="quiz-opt" data-correct="false">Kolesterol bebas murni</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="quiz-item" data-expl="Cadherin (Calcium-dependent adhesion) bergantung pada ikatan Ca²⁺ pada domain ekstraselulernya untuk memediasi perlekatan homofilik antarsel.">
+          <p class="quiz-question">3. Protein adhesi sel yang bergantung pada ion Ca²⁺ dan berfungsi menghubungkan sel-sel epitel adalah...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Cadherin</button>
+            <button class="quiz-opt" data-correct="false">Integrin</button>
+            <button class="quiz-opt" data-correct="false">Selektin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="quiz-item" data-expl="Integrin menghubungkan mikrofilamen aktin sitoskeleton dengan matriks ekstraseluler melalui ligan seperti fibronektin, kolagen, dan laminin.">
+          <p class="quiz-question">4. Integrin menghubungkan sitoskeleton intraseluler (aktin) dengan komponen matriks ekstraseluler seperti...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Fibronektin / Kolagen / Laminin</button>
+            <button class="quiz-opt" data-correct="false">Tubulin sitosol</button>
+            <button class="quiz-opt" data-correct="false">Ribosom 80S</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="quiz-item" data-expl="Selektin berikatan dengan rantai karbohidrat pada leukosit untuk memediasi perlekatan menggelinding (rolling adhesion) ke endotel saat peradangan.">
+          <p class="quiz-question">5. Selektin berperan penting dalam proses... leukosit menuju jaringan inflamasi.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Fagositosis lisis</button>
+            <button class="quiz-opt" data-correct="true">Rolling adhesion (penempelan dan pergerakan menggelinding)</button>
+            <button class="quiz-opt" data-correct="false">Sintesis antibodi sekresi</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="quiz-item" data-expl="RTK adalah reseptor permukaan transmembran dengan aktivitas enzim intraseluler intrinsik yang mentransduksi sinyal faktor pertumbuhan melalui autofosforilasi tirosin.">
+          <p class="quiz-question">6. Reseptor tirosin kinase (RTK) merupakan contoh protein permukaan sel yang berfungsi sebagai...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Reseptor transduksi sinyal seluler transmembran bertransduksi kinase</button>
+            <button class="quiz-opt" data-correct="false">Saluran transpor pasif gas CO₂</button>
+            <button class="quiz-opt" data-correct="false">Penyangga struktural kaku</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="quiz-item" data-expl="Zonula occludens (tight junctions) menyegel celah antar sel epitel untuk menyekat jalur paraseluler dari difusi tak terkontrol.">
+          <p class="quiz-question">7. Junction tight (zonula occludens) berfungsi untuk mencegah kebocoran zat antar sel epitel melalui jalur...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Paraseluler (paracellular pathway)</button>
+            <button class="quiz-opt" data-correct="false">Transeluler aktif</button>
+            <button class="quiz-opt" data-correct="false">Endositotik aksial</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="quiz-item" data-expl="Enam subunit protein koneksin bersatu membentuk struktur cincin tubular heksamerik yang disebut konekson (connexon).">
+          <p class="quiz-question">8. Gap junction memungkinkan pertukaran ion dan molekul kecil (<1kDa) antar sel melalui kanal yang dibentuk oleh protein...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Klaudin</button>
+            <button class="quiz-opt" data-correct="true">Koneksin (Connexin)</button>
+            <button class="quiz-opt" data-correct="false">Aktinin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="quiz-item" data-expl="Desmosom mendistribusikan gaya mekanis ke seluruh jaringan epitel dengan cara mengikat filamen intermediat (keratin).">
+          <p class="quiz-question">9. Desmosom (macula adherens) memberikan kekuatan mekanik pada jaringan dengan menghubungkan filamen... antar sel.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Intermediat (keratin / desmin)</button>
+            <button class="quiz-opt" data-correct="false">Mikrofilamen aktin tipis</button>
+            <button class="quiz-opt" data-correct="false">Mikrotubulus spindel</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="quiz-item" data-expl="MHC kelas I menyajikan peptida endogen kepada sel T sitotoksik (sel T CD8⁺) untuk mengawasi integritas intraseluler dari infeksi virus atau mutasi tumor.">
+          <p class="quiz-question">10. MHC kelas I terdapat pada semua sel berinti dan berfungsi mempresentasikan antigen kepada sel T...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Sel T Helper (CD4⁺)</button>
+            <button class="quiz-opt" data-correct="true">Sel T Sitotoksik (CD8⁺)</button>
+            <button class="quiz-opt" data-correct="false">Sel T Regulator (Treg)</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="quiz-item" data-expl="Karena sifat lipofiliknya, hormon steroid dapat berdifusi bebas melintasi lipid bilayer untuk mengikat reseptor di sitosol atau nukleus.">
+          <p class="quiz-question">11. Reseptor hormon steroid biasanya terletak di..., bukan di permukaan sel.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Intraseluler (sitosol atau nukleus)</button>
+            <button class="quiz-opt" data-correct="false">Lumen badan Golgi</button>
+            <button class="quiz-opt" data-correct="false">Matriks ekstraseluler</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="quiz-item" data-expl="Penambatan GPI (Glikosilfosfatidilinositol) menautkan protein secara kovalen ke monolayer luar membran via gugus fosfatidilinositol terglikosilasi.">
+          <p class="quiz-question">12. GPI-anchor adalah cara penambatan protein ke membran melalui gugus...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Glikosilfosfatidilinositol (glikolipid)</button>
+            <button class="quiz-opt" data-correct="false">Asam nukleat fosfodiester</button>
+            <button class="quiz-opt" data-correct="false">Polipeptida klatrin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="quiz-item" data-expl="E-cadherin (Epithelial Cadherin) adalah molekul adhesi utama yang menjaga integritas arsitektur jaringan epitel.">
+          <p class="quiz-question">13. Cadherin E (E-cadherin) terutama ditemukan pada jaringan...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Epitel (Epithelial tissue)</button>
+            <button class="quiz-opt" data-correct="false">Neuron pusat</button>
+            <button class="quiz-opt" data-correct="false">Jaringan ikat longgar</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="quiz-item" data-expl="Sinyal inside-out memicu perubahan konformasi integrin dari konformasi tertutup berafinitas rendah menjadi konformasi terbuka berafinitas tinggi (aktivasi integrin).">
+          <p class="quiz-question">14. Sinyal 'inside-out' pada integrin mengubah afinitas binding site dari dalam sel ke luar sel. Proses ini disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Inaktivasi fusi</button>
+            <button class="quiz-opt" data-correct="true">Aktivasi integrin (Integrin activation)</button>
+            <button class="quiz-opt" data-correct="false">Degradasi ubiquitin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="quiz-item" data-expl="Proteoglikan terdiri dari protein inti yang berikatan kovalen dengan satu atau lebih rantai polisakarida GAG bermuatan negatif kuat.">
+          <p class="quiz-question">15. Proteoglycan dalam matriks ekstraseluler memiliki rantai samping berupa...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Glikosaminoglikan (GAGs - Glycosaminoglycans)</button>
+            <button class="quiz-opt" data-correct="false">Asam lemak jenuh</button>
+            <button class="quiz-opt" data-correct="false">Kodon nukleotida</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+      </div>
+
+      <!-- Bank Soal Esai Bab 2 -->
+      <div class="essay-section">
+        <button class="essay-toggle" type="button">
+          <span>Tampilkan Bank Soal Diskusi & Esai Bab 2</span>
+          <span>▼</span>
+        </button>
+        <div class="essay-content">
+          <ol class="essay-list">
+            <li>Jelaskan fungsi biologis glikokaliks dan penentuan golongan darah sistem ABO pada eritrosit!</li>
+            <li>Bandingkan struktur dan fungsi Tight Junction, Adherens Junction, Desmosom, dan Gap Junction!</li>
+            <li>Jelaskan mekanisme rolling adhesion dan firm adhesion leukosit pada endotel selama inflamasi!</li>
+            <li>Bagaimana integrin mentransduksi sinyal outside-in dan inside-out?</li>
+            <li>Apa perbedaan reseptor membran (RTK, GPCR) dengan reseptor nuklear intraseluler?</li>
+            <li>Jelaskan peran E-cadherin dalam embriogenesis dan dampak hilangnya ekspresi pada invasi kanker!</li>
+            <li>Bagaimana sistem MHC kelas I dan II membedakan antigen self dan non-self?</li>
+            <li>Apa peran Focal Adhesion Kinase (FAK) dalam menghubungkan integrin dengan aktin?</li>
+            <li>Jelaskan struktur proteoglikan dan peranan muatan negatif GAG terhadap hidrasi jaringan!</li>
+            <li>Analisis kasus pemphigus vulgaris: dampak autoantibodi anti-desmoglein terhadap kulit dan mukosa!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAB 3 -->
+    <section id="bab3" class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-number">Bab 03</span>
+        <h2>Lingkungan Ekstrasel & Dinding Sel</h2>
+      </div>
+      <p class="intro-text">
+        Matriks Ekstraseluler (ECM) jaringan hewan dan dinding polimerik sel tumbuhan serta bakteri menyediakan penyangga osmotik, kekuatan tarik, dan sinyal perlekatan jaringan.
+      </p>
+
+      <div class="table-container">
+        <h3>Perbandingan: Dinding Sel Bakteri Gram Positif vs Negatif</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Fitur Pembeda</th>
+              <th>Bakteri Gram Positif</th>
+              <th>Bakteri Gram Negatif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lapisan <span class="glossary-term" data-def="Polimer peptida-gula (NAG dan NAM) yang membentuk lapisan jala pelindung dinding sel bakteri.">peptidoglikan</span></td>
+              <td>Sangat tebal (multilayer, 20–80 nm)</td>
+              <td>Tipis (monolayer, 2–7 nm)</td>
+            </tr>
+            <tr>
+              <td>Membran Luar (Outer Membrane)</td>
+              <td>Tidak ada</td>
+              <td>Ada (mengandung Lipopolisakarida/LPS)</td>
+            </tr>
+            <tr>
+              <td>Kandungan Asam Teikoat</td>
+              <td>Ada (asam teikoat & lipoteikoat)</td>
+              <td>Tidak ada</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kuis 15 Soal Bab 3 -->
+      <div class="quiz-section">
+        <h3>Kuis Lengkap Bab 3: Lingkungan Ekstrasel & Dinding Sel (15 Soal)</h3>
+
+        <!-- Soal 1 -->
+        <div class="quiz-item" data-expl="Ground substance ECM hewani berupa matriks gel terhidrasi kaya proteoglikan dan glikosaminoglikan (GAG).">
+          <p class="quiz-question">1. Matriks ekstraseluler (ECM) hewan tersusun atas serat protein (kolagen, elastin) dan ground substance berupa...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Fosfolipid bilayer bebas</button>
+            <button class="quiz-opt" data-correct="true">Proteoglikan dan Glikosaminoglikan (GAGs)</button>
+            <button class="quiz-opt" data-correct="false">Lignin terhidrolisis</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="quiz-item" data-expl="Kolagen tipe I merupakan protein fibrosa utama pada tendon, ligamen, dermis kulit, dan matriks organik tulang.">
+          <p class="quiz-question">2. Kolagen tipe I adalah kolagen paling abundant dan ditemukan terutama pada...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Tulang, kulit, dan tendon</button>
+            <button class="quiz-opt" data-correct="false">Kartilago hialin murni</button>
+            <button class="quiz-opt" data-correct="false">Membran basal glomerulus</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="quiz-item" data-expl="Elastin membentuk jejaring serat elastis silang yang dapat meregang dan kembali ke bentuk semula (elastisitas rekoil).">
+          <p class="quiz-question">3. Elastin memberikan sifat ... pada jaringan seperti paru-paru dan pembuluh darah besar.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Kekakuan kalsifikasi mutlak</button>
+            <button class="quiz-opt" data-correct="true">Elastisitas dan fleksibilitas rekoil mekanik</button>
+            <button class="quiz-opt" data-correct="false">Kedap cairan sempurna</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="quiz-item" data-expl="Fibronektin adalah glikoprotein multi-domain yang memiliki situs pengikatan khusus untuk integrin, kolagen, heparin, dan fibrin.">
+          <p class="quiz-question">4. Fibronectin adalah glikoprotein ECM yang berfungsi sebagai 'jembatan' antara sel (integrin) dan komponen ECM lainnya seperti...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Kolagen dan proteoglikan</button>
+            <button class="quiz-opt" data-correct="false">Ribosom</button>
+            <button class="quiz-opt" data-correct="false">DNA polimerase</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="quiz-item" data-expl="Lamina basal (membran basal) dicirikan secara eksklusif oleh jaringan lembaran kolagen tipe IV nonserabut dan laminin.">
+          <p class="quiz-question">5. Lamina basal adalah lapisan tipis ECM yang memisahkan epitel dari jaringan ikat di bawahnya. Komponen utamanya adalah kolagen tipe... dan laminin.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Kolagen tipe I</button>
+            <button class="quiz-opt" data-correct="true">Kolagen tipe IV</button>
+            <button class="quiz-opt" data-correct="false">Kolagen tipe II</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="quiz-item" data-expl="Dinding sel primer tumbuhan tersusun dari kerangka mikrofibril selulosa yang tertanam dalam matriks pektin dan hemiselulosa.">
+          <p class="quiz-question">6. Dinding sel primer tumbuhan tersusun atas mikrofibril selulosa yang tertanam dalam matriks...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Hemiselulosa dan pektin</button>
+            <button class="quiz-opt" data-correct="false">Peptidoglikan</button>
+            <button class="quiz-opt" data-correct="false">Elastin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="quiz-item" data-expl="Pektin adalah polisakarida kaya asam galakturonat yang berfungsi merekatkan sel-sel berdampingan (middle lamella) serta memberi plastisitas seluler.">
+          <p class="quiz-question">7. Pektin dalam dinding sel tumbuhan berfungsi sebagai... dan memberikan fleksibilitas.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Perekat antarsel (semen) dan penahan air</button>
+            <button class="quiz-opt" data-correct="false">Enzim pemotong protein</button>
+            <button class="quiz-opt" data-correct="false">Komponen endotoksin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="quiz-item" data-expl="Desmotubul adalah silinder tubular membran turunan Retikulum Endoplasma yang melintasi bagian tengah kanal plasmodesmata.">
+          <p class="quiz-question">8. Plasmodesmata adalah saluran sitoplasmik yang menembus dinding sel tumbuhan. Saluran ini dilapisi oleh membran plasma dan berisi struktur sentral bernama...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Desmotubul (Desmotubule)</button>
+            <button class="quiz-opt" data-correct="false">Sentriol</button>
+            <button class="quiz-opt" data-correct="false">Kinetokor</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="quiz-item" data-expl="Lignin adalah polimer aromatik kompleks yang didepositkan pada dinding sel sekunder untuk memberi kekakuan mekanik dan hidrofobisitas (tahan air).">
+          <p class="quiz-question">9. Dinding sel sekunder tumbuhan mengandung lignin yang berfungsi untuk... dan membuat dinding menjadi keras/tahan air.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Memberikan kekakuan struktural dan resistensi kompresi</button>
+            <button class="quiz-opt" data-correct="false">Mempercepat pembelahan inti</button>
+            <button class="quiz-opt" data-correct="false">Menyerap sinar matahari</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="quiz-item" data-expl="Polimer glikan berulang NAG dan NAM disambungkan melalui ikatan silang peptida (oligopeptide cross-links) oleh enzim transpeptidase.">
+          <p class="quiz-question">10. Peptidoglikan (murein) adalah komponen khas dinding sel bakteri, tersusun atas rantai polisakarida NAG-NAM yang dihubungkan oleh...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Ikatan fosfodiester ganda</button>
+            <button class="quiz-opt" data-correct="true">Jembatan silang peptida pendek (cross-linked peptides)</button>
+            <button class="quiz-opt" data-correct="false">Ikatan disulfida intermolekul</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="quiz-item" data-expl="Bakteri Gram positif dicirikan oleh lapisan peptidoglikan multilayer yang tebal (20-80 nm) dan diinfiltrasi asam teikoat.">
+          <p class="quiz-question">11. Bakteri Gram positif memiliki lapisan peptidoglikan yang ... dan mengandung asam teikoat.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Tebal (multilayer)</button>
+            <button class="quiz-opt" data-correct="false">Tipis satu lapis</button>
+            <button class="quiz-opt" data-correct="false">Semi-cair</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="quiz-item" data-expl="Membran luar bakteri Gram negatif kaya akan molekul lipopolisakarida (LPS) pada lembaran luarnya.">
+          <p class="quiz-question">12. Bakteri Gram negatif memiliki lapisan peptidoglikan yang tipis dan dilindungi oleh membran luar yang mengandung...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Lipopolisakarida (LPS)</button>
+            <button class="quiz-opt" data-correct="false">Asam teikoat</button>
+            <button class="quiz-opt" data-correct="false">Kitin amorf</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="quiz-item" data-expl="Lipid A dari molekul lipopolisakarida (LPS) bertindak sebagai endotoksin potensial penyebab syok septik.">
+          <p class="quiz-question">13. Lipopolisakarida (LPS) pada membran luar bakteri Gram negatif bertindak sebagai... yang kuat.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Endotoksin</button>
+            <button class="quiz-opt" data-correct="false">Antibiotik</button>
+            <button class="quiz-opt" data-correct="false">Neurotransmitter</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="quiz-item" data-expl="Kitin pada dinding sel cendawan/fungi adalah homopolimer dari N-asetilglukosamin (GlcNAc).">
+          <p class="quiz-question">14. Dinding sel jamur tersusun atas kitin, yaitu polimer dari...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">N-acetylglucosamine (NAG)</button>
+            <button class="quiz-opt" data-correct="false">Asam amino lisin</button>
+            <button class="quiz-opt" data-correct="false">Fruktosa</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="quiz-item" data-expl="Enzim lisozim membelah ikatan beta-1,4-glikosidik antara monomer NAG dan NAM, menyebabkan lisis osmotik dinding sel bakteri.">
+          <p class="quiz-question">15. Enzim lisozim menghancurkan dinding sel bakteri dengan memutus ikatan β-1,4-glikosidik antara...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Glukosa dan Fruktosa</button>
+            <button class="quiz-opt" data-correct="true">NAG (N-acetylglucosamine) dan NAM (N-acetylmuramic acid)</button>
+            <button class="quiz-opt" data-correct="false">Alanin dan Lisin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+      </div>
+
+      <!-- Bank Soal Esai Bab 3 -->
+      <div class="essay-section">
+        <button class="essay-toggle" type="button">
+          <span>Tampilkan Bank Soal Diskusi & Esai Bab 3</span>
+          <span>▼</span>
+        </button>
+        <div class="essay-content">
+          <ol class="essay-list">
+            <li>Jelaskan organisasi hierarkis ECM dan peranan fibronectin serta kolagen dalam memandu migrasi seluler!</li>
+            <li>Bandingkan struktur/fungsi kolagen, elastin, dan retikular fibers, serta defisiensi pada sindrom Ehlers-Danlos!</li>
+            <li>Jelaskan biosintesis kolagen dan korelasi defisiensi vitamin C pada skorbut!</li>
+            <li>Deskripsikan struktur lamela tengah hingga dinding sekunder tumbuhan serta transport simplas vs apoplas via plasmodesmata!</li>
+            <li>Jelaskan perbedaan mendasar dinding sel bakteri Gram positif vs negatif terhadap sensitivitas antibiotik!</li>
+            <li>Jelaskan mekanisme inhibisi transpeptidase bakteri oleh penisilin tanpa merusak sel manusia!</li>
+            <li>Bagaimana tumbuhan merespons patogen via deposisi kalosa, lignifikasi, dan fitoaleksin?</li>
+            <li>Apa fungsi lamina basal pada filtrasi glomerulus ginjal dan patofisiologi mutasi kolagen IV pada sindrom Alport?</li>
+            <li>Jelaskan peranan heparan sulfate proteoglycans (HSPGs) dalam mengikat faktor pertumbuhan (FGF/VEGF)!</li>
+            <li>Analisis evolusioner: mengapa sel hewan berevolusi tanpa dinding sel seperti tumbuhan atau prokariota?</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAB 4 -->
+    <section id="bab4" class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-number">Bab 04</span>
+        <h2>Sistem Endomembran</h2>
+      </div>
+      <p class="intro-text">
+        Organel bermembran mengoordinasikan sintesis polipeptida, modifikasi awal, dan translokasi terarah melalui jalur sekretori vesikular berselubung.
+      </p>
+
+      <div class="visual-diagram-card">
+        <div class="diagram-header">Skema Penargetan Vesikel: Kompleks SNARE</div>
+        <div class="svg-wrapper">
+          <svg viewBox="0 0 500 150" class="responsive-svg">
+            <circle cx="100" cy="75" r="42" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <text x="100" y="80" text-anchor="middle" font-size="11" font-weight="700" fill="#b45309">Vesikel</text>
+            <path d="M 142 75 Q 180 65 210 75" fill="none" stroke="#dc2626" stroke-width="4"/>
+            <text x="180" y="58" font-size="10" fill="#dc2626" font-weight="700">v-SNARE</text>
+
+            <rect x="350" y="10" width="25" height="130" rx="4" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+            <text x="390" y="80" font-size="11" font-weight="700" fill="#0369a1">Target</text>
+            <path d="M 350 75 Q 280 85 210 75" fill="none" stroke="#2563eb" stroke-width="4"/>
+            <text x="260" y="105" font-size="10" fill="#2563eb" font-weight="700">t-SNARE</text>
+          </svg>
+        </div>
+        <p class="diagram-caption">Interaksi trans-kompleks antara v-SNARE dan t-SNARE mengatasi gaya tolak elektrostatik antar-lipid untuk memicu fusi membran.</p>
+      </div>
+
+      <div class="table-container">
+        <h3>Vesikel Berselubung (Coated Vesicles)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Tipe Selubung</th>
+              <th>Arah Rute Transportasi</th>
+              <th>GTPase Pengatur</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>COPII</td>
+              <td>Anterograde (ER menuju ke Golgi cis)</td>
+              <td>Sar1 GTPase</td>
+            </tr>
+            <tr>
+              <td>COPI</td>
+              <td>Retrograde (Golgi balik ke Retikulum Endoplasma)</td>
+              <td>Arf1 GTPase</td>
+            </tr>
+            <tr>
+              <td>Klatrin</td>
+              <td>Trans-Golgi Network ke endosom & endositosis membran plasma</td>
+              <td>Arf1 / Dynamin</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kuis 15 Soal Bab 4 -->
+      <div class="quiz-section">
+        <h3>Kuis Lengkap Bab 4: Sistem Endomembran (15 Soal)</h3>
+
+        <!-- Soal 1 -->
+        <div class="quiz-item" data-expl="Ribosom yang berikatan dengan RER mensintesis protein sekretori, protein transmembran, dan enzim luminal endomembran/lisosom.">
+          <p class="quiz-question">1. Retikulum Endoplasma Kasar (RER) ditempeli ribosom dan berfungsi utama untuk sintesis protein...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Sitosol murni</button>
+            <button class="quiz-opt" data-correct="true">Sekretori, membran integral, dan organel endomembran</button>
+            <button class="quiz-opt" data-correct="false">Genom kloroplas</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="quiz-item" data-expl="SRP mengikat peptida sinyal pada ujung N-terminus polipeptida baru dan mengarahkannya ke reseptor SRP di membran RER.">
+          <p class="quiz-question">2. Signal Recognition Particle (SRP) mengenali signal peptide pada protein nascent dan mengarahkannya ke...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Pori nukleus</button>
+            <button class="quiz-opt" data-correct="true">Reseptor SRP pada membran RER</button>
+            <button class="quiz-opt" data-correct="false">Krista mitokondria</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="quiz-item" data-expl="Kompleks Sec61 adalah kanal aqueous (translokon) transmembran yang memandu translokasi polipeptida masuk ke lumen ER.">
+          <p class="quiz-question">3. Translokator di membran RER disebut kompleks...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Kompleks Sec61</button>
+            <button class="quiz-opt" data-correct="false">Porin VDAC</button>
+            <button class="quiz-opt" data-correct="false">Kompleks TIM/TOM</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="quiz-item" data-expl="Enzim Protein Disulfide Isomerase (PDI) di lumen RER mengkatalisis pembentukan ikatan kovalen disulfida (-S-S-).">
+          <p class="quiz-question">4. Modifikasi pasca-translasi awal di RER meliputi pemotongan signal peptide, N-linked glycosylation, dan pembentukan ikatan...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Ikatan disulfida</button>
+            <button class="quiz-opt" data-correct="false">Ikatan fosfodiester</button>
+            <button class="quiz-opt" data-correct="false">Ikatan ester trigliserida</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="quiz-item" data-expl="Protein yang gagal melipat di ER diekspor kembali ke sitosol untuk didegradasi via ERAD (ER-Associated Degradation) oleh proteasom.">
+          <p class="quiz-question">5. Chaperone BiP/GRP78 di lumen RER membantu folding protein dan mencegah agregasi. Jika protein salah lipat, chaperone ini menandainya untuk degradasi via jalur...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Glikolisis anaerob</button>
+            <button class="quiz-opt" data-correct="true">ERAD (ER-Associated Degradation) via proteasom</button>
+            <button class="quiz-opt" data-correct="false">Eksositosis konstitutif</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="quiz-item" data-expl="SER berfungsi mensintesis fosfolipid dan steroid, mendetoksifikasi xenobiotik, serta menyimpan dan melepaskan ion kalsium (Ca²⁺).">
+          <p class="quiz-question">6. Retikulum Endoplasma Halus (SER) berfungsi untuk sintesis lipid, detoksifikasi obat, dan penyimpanan ion...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Kalsium (Ca²⁺)</button>
+            <button class="quiz-opt" data-correct="false">Besi (Fe³⁺)</button>
+            <button class="quiz-opt" data-correct="false">Kalium (K⁺)</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="quiz-item" data-expl="Vesikel berselubung COPII memediasi transpor anterograd protein kargo dari zona keluar ER (ERES) menuju cis-Golgi.">
+          <p class="quiz-question">7. Protein yang lolos quality control RER akan dikemas ke vesikel COPII untuk ditransport ke...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Peroksisom</button>
+            <button class="quiz-opt" data-correct="true">Aparatus Golgi (sisi cis)</button>
+            <button class="quiz-opt" data-correct="false">Nukleolus</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="quiz-item" data-expl="Vesikel COPI memulihkan protein lumen dan membran yang memiliki sinyal retensi (seperti KDEL) kembali ke ER.">
+          <p class="quiz-question">8. Vesikel COPI bertanggung jawab untuk transport retrograde dari Golgi kembali ke...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Lisosom primer</button>
+            <button class="quiz-opt" data-correct="true">Retikulum Endoplasma (ER)</button>
+            <button class="quiz-opt" data-correct="false">Mitokondria</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="quiz-item" data-expl="Trans-Golgi Network (TGN) bertindak sebagai pusat pemilahan dan pengiriman vesikel ke membran sel, lisosom, atau granula sekretori.">
+          <p class="quiz-question">9. Badan Golgi memiliki polaritas: sisi cis menerima vesikel dari ER, sisi trans mengirim vesikel ke...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Membran plasma, lisosom, atau vesikel sekresi</button>
+            <button class="quiz-opt" data-correct="false">Ribosom bebas sitosol</button>
+            <button class="quiz-opt" data-correct="false">Lumen ER kembali saja</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="quiz-item" data-expl="Di sisterna trans-Golgi, residu asam sialat (N-acetylneuraminic acid) ditambahkan ke ujung rantai oligosakarida.">
+          <p class="quiz-question">10. Modifikasi oligosakarida di Golgi meliputi trimming manosa dan penambahan gula seperti N-acetylglucosamine, galaktosa, dan...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Asam amino serin</button>
+            <button class="quiz-opt" data-correct="true">Asam sialat (Sialic acid / N-acetylneuraminic acid)</button>
+            <button class="quiz-opt" data-correct="false">Klorofil</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="quiz-item" data-expl="Fosforilasi manosa menjadi manosa-6-fosfat (M6P) mengarahkan enzim hidrolitik asam secara presisi ke organel lisosom.">
+          <p class="quiz-question">11. Sorting signal Mannose-6-Phosphate (M6P) ditambahkan di Golgi cis untuk menargetkan enzim ke...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Lisosom</button>
+            <button class="quiz-opt" data-correct="false">Peroksisom</button>
+            <button class="quiz-opt" data-correct="false">Kloroplas</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="quiz-item" data-expl="Protein jalur sekresi teregulasi (seperti hormon insulin dan enzim pencernaan) dikondensasikan dalam vesikel atau granula sekretori khusus.">
+          <p class="quiz-question">12. Protein sekretori konstitutif dikemas ke vesikel yang langsung berfusi dengan membran plasma, sedangkan protein regulasi disimpan dalam...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Vesikel / Granula sekretori (secretory granules)</button>
+            <button class="quiz-opt" data-correct="false">Sitoskeleton mikrotubul</button>
+            <button class="quiz-opt" data-correct="false">Sentrosom</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="quiz-item" data-expl="Pada TGN, selubung klatrin memfasilitasi pembentukan tunas vesikel transport yang membawa kargo spesifik (seperti hidrolase lisosom berikatan M6P-R) menuju endosom.">
+          <p class="quiz-question">13. Vesikel clathrin-coated di membran plasma terlibat dalam endositosis, sedangkan di Golgi trans terlibat dalam pembentukan...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Vesikel transport kargo menuju endosom / lisosom</button>
+            <button class="quiz-opt" data-correct="false">Vesikel balik ke retikulum endoplasma</button>
+            <button class="quiz-opt" data-correct="false">Mitokondria baru</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="quiz-item" data-expl="Interaksi heliks stabil v-SNARE dan t-SNARE membentuk four-helix trans-SNARE bundle yang menarik kedua lipid bilayer untuk menyatu (fusi).">
+          <p class="quiz-question">14. SNARE proteins (v-SNARE dan t-SNARE) memastikan spesifisitas fusi vesikel dengan target membran melalui pembentukan kompleks...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Kompleks transkripsi promoter</button>
+            <button class="quiz-opt" data-correct="true">Trans-SNARE complex (four-helix bundle)</button>
+            <button class="quiz-opt" data-correct="false">Kompleks histon oktamer</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="quiz-item" data-expl="Rab GTPase berfungsi sebagai saklar molekuler yang memandu penambatan awal (tethering/docking) vesikel ke membran sasaran sebelum pembentukan kompleks SNARE.">
+          <p class="quiz-question">15. Rab GTPases berfungsi sebagai molecular switch yang merekrut efektor untuk... vesikel sebelum fusi SNARE.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Docking dan tethering (penambatan terarah)</button>
+            <button class="quiz-opt" data-correct="false">Degradasi total kargo</button>
+            <button class="quiz-opt" data-correct="false">Replikasi materi DNA</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+      </div>
+
+      <!-- Bank Soal Esai Bab 4 -->
+      <div class="essay-section">
+        <button class="essay-toggle" type="button">
+          <span>Tampilkan Bank Soal Diskusi & Esai Bab 4</span>
+          <span>▼</span>
+        </button>
+        <div class="essay-content">
+          <ol class="essay-list">
+            <li>Jelaskan rute jalur sekretori klasik mulai dari translasi ribosom hingga penyortiran akhir di TGN!</li>
+            <li>Apa itu Unfolded Protein Response (UPR) dan 3 cabang transduksi sinyalnya (IRE1, PERK, ATF6)?</li>
+            <li>Bandingkan fungsi biokimiawi RER vs SER pada sel eksokrin pankreas dan hepatosit!</li>
+            <li>Jelaskan perbedaan glikosilasi N-linked (di Asn pada RER) dan O-linked (di Ser/Thr pada Golgi)!</li>
+            <li>Bagaimana vesikel mengalami pertunasan (budding) via Sar1/Arf GTPase dan protein selubung?</li>
+            <li>Apa fungsi sinyal penahan KDEL/KKXX pada protein resident lumen retikulum endoplasma?</li>
+            <li>Jelaskan mekanisme penandaan Mannose-6-Phosphate (M6P) hingga pelepasan hidrolase di endosom late!</li>
+            <li>Bagaimana V-type H⁺-ATPase mempertahankan asidifikasi kompartemen endomembran?</li>
+            <li>Bandingkan makroautofagi, mikroautofagi, dan CMA serta peran konversi marker LC3-II!</li>
+            <li>Analisis I-cell disease: kegagalan fosfotransferase M6P terhadap mis-sorting enzim ke ekstrasel!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAB 5 -->
+    <section id="bab5" class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-number">Bab 05</span>
+        <h2>Lisosom & Pencernaan Intraselular</h2>
+      </div>
+      <p class="intro-text">
+        Lisosom mempertahankan pH luminal asam (~4.5–5.0) via H⁺-ATPase vakuolar guna memfasilitasi aktivitas optimal enzim hidrolase asam dalam mencerna substrat internal maupun eksternal.
+      </p>
+
+      <div class="table-container">
+        <h3>Perbandingan Tipe Jalur Autofagi</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rute Jalur</th>
+              <th>Mekanisme Pengambilan Substrat</th>
+              <th>Spesifisitas Kargo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Makroautofagi</td>
+              <td>Enklosur sitoplasma via autofagosom membran ganda</td>
+              <td>Non-selektif / Selektif (Mitofagi, agregat)</td>
+            </tr>
+            <tr>
+              <td>Mikroautofagi</td>
+              <td>Invaginasi langsung membran lisosom</td>
+              <td>Non-selektif mikroskopis</td>
+            </tr>
+            <tr>
+              <td>Chaperone-Mediated Autophagy (CMA)</td>
+              <td>Translokasi langsung via oligomer kanal LAMP-2A</td>
+              <td>Sangat selektif (mengenali motif konsensus <span class="glossary-term" data-def="Sekuens asam amino Lys-Phe-Glu-Arg-Gln yang dikenali oleh chaperone sitosolik Hsc70.">KFERQ</span>)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kuis 15 Soal Bab 5 -->
+      <div class="quiz-section">
+        <h3>Kuis Lengkap Bab 5: Lisosom & Pencernaan Intraselular (15 Soal)</h3>
+
+        <!-- Soal 1 -->
+        <div class="quiz-item" data-expl="Lisosom mengandung sekitar 50 jenis enzim hidrolase asam (seperti protease, nuklease, glikosidase, lipase).">
+          <p class="quiz-question">1. Lisosom adalah organel bermembran tunggal yang mengandung enzim...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Oksidatif peroksisomal</button>
+            <button class="quiz-opt" data-correct="true">Hidrolase asam (Acid hydrolases)</button>
+            <button class="quiz-opt" data-correct="false">Sitokrom respirasi</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="quiz-item" data-expl="Aktivitas enzimatis hidrolase lisosom teradaptasi optimal pada lingkungan asam (pH ~4.5 - 5.0).">
+          <p class="quiz-question">2. pH optimal enzim lisosomal adalah sekitar...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">4.5 – 5.0</button>
+            <button class="quiz-opt" data-correct="false">7.2 – 7.4</button>
+            <button class="quiz-opt" data-correct="false">8.5 – 9.0</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="quiz-item" data-expl="Glikosilasi ekstensif pada domain luminal glikoprotein membran LAMP-1 dan LAMP-2 membentuk mantel glikokaliks protektif terhadap hidrolisis.">
+          <p class="quiz-question">3. Membran lisosom kaya akan glikoprotein LAMP-1 dan LAMP-2 yang berfungsi melindungi membran dari...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Stres hipertonik</button>
+            <button class="quiz-opt" data-correct="true">Autodigesti oleh enzim hidrolase asam di lumen</button>
+            <button class="quiz-opt" data-correct="false">Pembelahan biner spontan</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="quiz-item" data-expl="Heterofagi adalah degradasi substrat atau patogen yang diinternalisasi dari lingkungan ekstraseluler via fagositosis atau endositosis.">
+          <p class="quiz-question">4. Heterofagi adalah pencernaan material yang berasal dari...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Luar sel (ekstraseluler)</button>
+            <button class="quiz-opt" data-correct="false">Lumen nukleus internal</button>
+            <button class="quiz-opt" data-correct="false">Sitosol sel itu sendiri</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="quiz-item" data-expl="Autofagi merupakan proses katabolik terkontrol di mana sel mencerna konstituen sitoplasmanya sendiri untuk daur ulang materi dan energi.">
+          <p class="quiz-question">5. Autofagi adalah pencernaan komponen sitoplasma sendiri yang rusak atau tidak diperlukan.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Benar</button>
+            <button class="quiz-opt" data-correct="false">Salah</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="quiz-item" data-expl="Fagosom adalah vesikel internalisasi besar berdinding membran tunggal yang terbentuk dari fagositosis mikroba atau debris sel.">
+          <p class="quiz-question">6. Fagosom adalah vesikel yang menelan partikel besar (bakteri, debris) melalui...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Fagositosis</button>
+            <button class="quiz-opt" data-correct="false">Eksositosis</button>
+            <button class="quiz-opt" data-correct="false">Transpor pasif membran</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="quiz-item" data-expl="Fusi antara endosom lanjut (late endosome) dengan lisosom membentuk struktur hibrida fungsional yang disebut endolisosom.">
+          <p class="quiz-question">7. Endosom awal (pH ~6.0) matang menjadi endosom late (pH ~5.5) lalu berfusi dengan lisosom membentuk...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Peroksisom</button>
+            <button class="quiz-opt" data-correct="true">Endolisosom (Endolysosome)</button>
+            <button class="quiz-opt" data-correct="false">Mitokondria sekunder</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="quiz-item" data-expl="Penurunan pH (~5.5) di lumen late endosome menyebabkan perubahan konformasi reseptor M6P sehingga melepaskan enzim lisosomal yang diikatnya.">
+          <p class="quiz-question">8. Reseptor M6P di membran TGN mengikat enzim lisosomal dan melepaskannya di endosom late karena pH...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Yang lebih asam (pH rendah ~5.5)</button>
+            <button class="quiz-opt" data-correct="false">Yang sangat basa (pH > 8)</button>
+            <button class="quiz-opt" data-correct="false">Yang netral sempurna (pH 7.0)</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="quiz-item" data-expl="Penyakit Tay-Sachs disebabkan oleh mutasi gen HEXA yang memicu defisiensi enzim beta-heksosaminidase A.">
+          <p class="quiz-question">9. Penyakit penyimpanan lisosomal (LSD) Tay-Sachs diakibatkan oleh defisiensi enzim...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Glukosidase netral</button>
+            <button class="quiz-opt" data-correct="true">Heksosaminidase A (Hexosaminidase A)</button>
+            <button class="quiz-opt" data-correct="false">RNA polimerase II</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="quiz-item" data-expl="Fagofor (isolation membrane) adalah struktur membran berbentuk cawan sabit yang memanjang membungkus sitoplasma menjadi autofagosom.">
+          <p class="quiz-question">10. Autophagosome dibentuk oleh membran berbentuk cawan called... yang menutupi cargo sitoplasmik.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Kaveola</button>
+            <button class="quiz-opt" data-correct="true">Fagofor (Phagophore / Isolation membrane)</button>
+            <button class="quiz-opt" data-correct="false">Bleb membran</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="quiz-item" data-expl="Protein membran LAMP-2A beroligomerisasi menjadi saluran translokasi untuk mengimpor substrat berlabel motif KFERQ ke lisosom.">
+          <p class="quiz-question">11. Chaperone-mediated autophagy (CMA) mengenali motif KFERQ pada protein substrat dan mentranslokasinya langsung melalui kompleks...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Porin Tom40</button>
+            <button class="quiz-opt" data-correct="true">Multimer LAMP-2A</button>
+            <button class="quiz-opt" data-correct="false">Kompleks Sec61</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="quiz-item" data-expl="Pada metamorfosis amfibi (katak), regresi ekor berudu berlangsung melalui proses autofagi dan degradasi lisosomal jaringan terprogram.">
+          <p class="quiz-question">12. Lisosom juga berperan dalam proses fisiologis non-pencernaan seperti osteoklast resorpsi tulang, fertilisasi (reaksi akrosom), dan metamorfosis...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Katak (regresi ekor berudu)</button>
+            <button class="quiz-opt" data-correct="false">Spora bakteri</button>
+            <button class="quiz-opt" data-correct="false">Kista amoeba</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="quiz-item" data-expl="Eksositosis lisosom (lysosomal exocytosis) mengosongkan enzim ke luar sel atau memasang tambalan membran lisosom pada luka membran plasma.">
+          <p class="quiz-question">13. Exocytosis lisosom dapat terjadi untuk memperbaiki membran plasma atau melepaskan enzim ekstraseluler. Proses ini disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Eksositosis lisosomal (Lysosomal exocytosis)</button>
+            <button class="quiz-opt" data-correct="false">Mitofagi selektif</button>
+            <button class="quiz-opt" data-correct="false">Invaginasi klatrin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="quiz-item" data-expl="Permeabilisasi membran lisosom (LMP) melepaskan enzim protease katepsin ke dalam sitosol yang memicu kaskade apoptosis.">
+          <p class="quiz-question">14. Lamprey dan beberapa organisme lain menggunakan lisosom untuk apoptosis melalui pelepasan katepsin ke sitosol. Ini disebut...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Lysosomal membrane permeabilization (LMP)</button>
+            <button class="quiz-opt" data-correct="false">Krenasi osmotik</button>
+            <button class="quiz-opt" data-correct="false">Feroptosis</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="quiz-item" data-expl="Parasit Plasmodium malaria memerlukan vakuola makanan bersuasana asam untuk mendegradasi hemoglobin eritrosit inang.">
+          <p class="quiz-question">15. Obat chloroquine meningkatkan pH lisosom. Ini digunakan untuk mengobati malaria karena parasit Plasmodium membutuhkan pH asam untuk...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Pencernaan dan degradasi hemoglobin inang dalam vakuola makanan</button>
+            <button class="quiz-opt" data-correct="false">Replikasi materi DNA inti</button>
+            <button class="quiz-opt" data-correct="false">Pembentukan dinding sel silika</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+      </div>
+
+      <!-- Bank Soal Esai Bab 5 -->
+      <div class="essay-section">
+        <button class="essay-toggle" type="button">
+          <span>Tampilkan Bank Soal Diskusi & Esai Bab 5</span>
+          <span>▼</span>
+        </button>
+        <div class="essay-content">
+          <ol class="essay-list">
+            <li>Jelaskan jalur heterofagi lengkap dari fagositosis awal hingga efluks monomer hasil pencernaan!</li>
+            <li>Bandingkan induksi fisiologis makroautofagi, mikroautofagi, dan CMA serta peran kompleks ULK1 dan Hsc70!</li>
+            <li>Bagaimana membran lisosom melindungi dirinya dari enzim hidrolitik luminal?</li>
+            <li>Jelaskan peranan lisosom dalam pemrosesan antigen eksogen untuk dimuat ke MHC kelas II!</li>
+            <li>Jelaskan korelasi disfungsi klirens lisosom terhadap agregasi protein pada penyakit neurodegeneratif!</li>
+            <li>Bagaimana osteoklas memanfaatkan aparatus asam lisosomal untuk mendegradasi matriks tulang?</li>
+            <li>Bagaimana virus (influenza/SARS-CoV-2) memanfaatkan pH rendah endosom untuk fusi membran?</li>
+            <li>Jelaskan etiologi, substrat yang terakumulasi, dan manifestasi klinis penyakit Gaucher atau Pompe!</li>
+            <li>Bagaimana faktor transkripsi TFEB bertindak sebagai master regulator biogenesis lisosom?</li>
+            <li>Analisis terapi modern LSD: bandingkan keunggulan dan limitasi ERT, SRT, dan pharmacological chaperones!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- BAB 6 -->
+    <section id="bab6" class="chapter-card">
+      <div class="chapter-header">
+        <span class="chapter-number">Bab 06</span>
+        <h2>Modifikasi & Ekspor Protein</h2>
+      </div>
+      <p class="intro-text">
+        Setelah sintesis, rantai polipeptida menjalani modifikasi kovalen pasca-translasi (PTM) sebelum disortir ke jalur sekresi konstitutif, granula tergulasi, atau vesikel ekstraseluler (<span class="glossary-term" data-def="Vesikel berukuran 30-150 nm turunan intraluminal endosom yang disekresi ke luar sel untuk komunikasi interseluler.">eksosom</span>).
+      </p>
+
+      <div class="table-container">
+        <h3>Klasifikasi Rute Sekresi & Pelepasan Protein</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Modalitas Rute</th>
+              <th>Ketergantungan Sinyal</th>
+              <th>Contoh Kargo Karakteristik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sekresi Konstitutif</td>
+              <td>Kontinu tanpa stimulasi eksternal</td>
+              <td>Albumin serum, molekul kolagen, laminin</td>
+            </tr>
+            <tr>
+              <td>Sekresi Tergulasi</td>
+              <td>Dipicu influks ion Ca²⁺ / ligan reseptor</td>
+              <td>Insulin pankreas, histamin sel mast, neurotransmitter</td>
+            </tr>
+            <tr>
+              <td>Vesikel Ekstraseluler (Eksosom)</td>
+              <td>Fusi Multivesicular Bodies (MVB) ke membran</td>
+              <td>microRNA, faktor parakrin, penanda CD63/CD81</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kuis 15 Soal Bab 6 -->
+      <div class="quiz-section">
+        <h3>Kuis Lengkap Bab 6: Modifikasi & Ekspor Protein (15 Soal)</h3>
+
+        <!-- Soal 1 -->
+        <div class="quiz-item" data-expl="Modifikasi pasca-translasi (PTM) mencakup fosforilasi, glikosilasi, asetilasi, ubiquitinasi, metilasi, serta proteolisis terbatas.">
+          <p class="quiz-question">1. Modifikasi pasca-translasi (PTM) meliputi fosforilasi, glikosilasi, asetilasi, ubiquitinasi, dan...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Metilasi / Proteolisis (pemotongan proteolitik)</button>
+            <button class="quiz-opt" data-correct="false">Transkripsi mRNA</button>
+            <button class="quiz-opt" data-correct="false">Replikasi semikonservatif</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 2 -->
+        <div class="quiz-item" data-expl="Protein kinase secara enzimatis mentransfer gugus fosfat terminal dari ATP ke residu asam amino dengan gugus -OH bebas: serin, treonin, atau tirosin.">
+          <p class="quiz-question">2. Fosforilasi biasanya terjadi pada residu asam amino serin, treonin, atau...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Triptofan</button>
+            <button class="quiz-opt" data-correct="true">Tirosin</button>
+            <button class="quiz-opt" data-correct="false">Leusin</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 3 -->
+        <div class="quiz-item" data-expl="Penambahan rantai poli-ubiquitin (terutama ikatan Lys48) mengarahkan protein intraseluler untuk didegradasi oleh kompleks proteasom 26S.">
+          <p class="quiz-question">3. Ubiquitinasi menandai protein untuk degradasi oleh kompleks...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Kompleks ribosom</button>
+            <button class="quiz-opt" data-correct="true">Proteasom 26S</button>
+            <button class="quiz-opt" data-correct="false">Spliseosom</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 4 -->
+        <div class="quiz-item" data-expl="Pemotongan endoproteolitik proinsulin oleh enzim prohormone convertase terjadi di dalam vesikel / granula sekretori matang trans-Golgi.">
+          <p class="quiz-question">4. Preproprotein harus dipotong oleh protease untuk menjadi bentuk aktif. Contoh: Proinsulin → Insulin oleh prohormone convertase di...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Vesikel / Granula sekretori Golgi trans</button>
+            <button class="quiz-opt" data-correct="false">Matriks mitokondria</button>
+            <button class="quiz-opt" data-correct="false">Peroksisom</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 5 -->
+        <div class="quiz-item" data-expl="Peptida sinyal (signal peptide) klasik berlokasi di ujung amino (N-terminal) dari rantai polipeptida yang baru disintesis.">
+          <p class="quiz-question">5. Protein yang diekspor melalui jalur sekretori konvensional memiliki signal peptide di ujung...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">N-terminus (N-terminal)</button>
+            <button class="quiz-opt" data-correct="false">C-terminus (C-terminal)</button>
+            <button class="quiz-opt" data-correct="false">Loop tengah saja</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 6 -->
+        <div class="quiz-item" data-expl="Sitokin inflamasi IL-1β tidak memiliki signal peptide dan diekspor melalui jalur sekresi non-konvensional, seperti translokasi langsung membran plasma via oligomer pori Gasdermin D atau autofagi sekretori.">
+          <p class="quiz-question">6. Jalur non-klasik untuk ekspor protein tanpa signal peptide contohnya adalah IL-1β yang diekspor via...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Translokasi langsung pori membran plasma / sekresi berbasis autofagi</button>
+            <button class="quiz-opt" data-correct="false">Jalur vesikel berselubung COPII murni</button>
+            <button class="quiz-opt" data-correct="false">Retikulum sarkoplasma</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 7 -->
+        <div class="quiz-item" data-expl="Eksosom (30–150 nm) dibentuk sebagai intraluminal vesicles (ILVs) melalui invaginasi ke arah dalam dari membran endosom lanjut (MVB).">
+          <p class="quiz-question">7. Exosomes adalah vesikel ekstraseluler berukuran 30-150 nm yang berasal dari invaginasi membran...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Endosom (membentuk ILVs di dalam Multivesicular Bodies / MVB)</button>
+            <button class="quiz-opt" data-correct="false">Membran luar nukleus</button>
+            <button class="quiz-opt" data-correct="false">Dinding kloroplas</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 8 -->
+        <div class="quiz-item" data-expl="Mikrovesikel (microvesicles / ectosomes) terbentuk melalui pemisahan dan penonjolan (blebbing/shedding) langsung dari membran plasma sel.">
+          <p class="quiz-question">8. Microvesicles (shedding vesicles) terbentuk langsung dari budding membran...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Membran plasma (Plasma membrane)</button>
+            <button class="quiz-opt" data-correct="false">Membran krista mitokondria</button>
+            <button class="quiz-opt" data-correct="false">Membran vakuola kontraktil</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 9 -->
+        <div class="quiz-item" data-expl="Apoptotic bodies adalah vesikel bermembran besar (>1 µm) yang dilepaskan ketika sel mengalami kematian terprogram (apoptosis).">
+          <p class="quiz-question">9. Apoptotic bodies adalah vesikel besar yang dilepaskan saat sel mengalami...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">Diferensiasi mitosis</button>
+            <button class="quiz-opt" data-correct="true">Apoptosis (kematian sel terprogram)</button>
+            <button class="quiz-opt" data-correct="false">Fotosintesis</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 10 -->
+        <div class="quiz-item" data-expl="Topologi protein integral tipe I memiliki domain N-terminal di luar sel/lumen dan domain C-terminal menghadap ke sitosol.">
+          <p class="quiz-question">10. Protein membran integral tipe I memiliki domain luminal/extracellular di ujung N-terminal dan sitosolik di ujung...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">C-terminal (C-terminus)</button>
+            <button class="quiz-opt" data-correct="false">N-terminal ganda</button>
+            <button class="quiz-opt" data-correct="false">Gugus metil bebas</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 11 -->
+        <div class="quiz-item" data-expl="Pernyataan ini benar secara biologis: Stop-transfer sequence menghentikan translokasi menjadi segmen transmembran, sedangkan start-transfer memulai translokasi melalui Sec61.">
+          <p class="quiz-question">11. Stop-transfer sequence menghentikan translokasi dan menjadi transmembrane domain. Start-transfer sequence memulai translokasi.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Benar</button>
+            <button class="quiz-opt" data-correct="false">Salah</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 12 -->
+        <div class="quiz-item" data-expl="Penambahan anchor GPI terjadi di lumen ER, sehingga saat vesikel berfusi ke membran plasma, protein akan menghadap ke permukaan luar (ekstraseluler).">
+          <p class="quiz-question">12. GPI-anchored protein ditambahkan di lumen ER dan akhirnya menghadap ke... sel.</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Permukaan ekstraseluler (luar)</button>
+            <button class="quiz-opt" data-correct="false">Sitosol dalam</button>
+            <button class="quiz-opt" data-correct="false">Nukleoplasma</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 13 -->
+        <div class="quiz-item" data-expl="Transportasi vesikular retrograde yang mengembalikan protein dari cisterna Golgi ke Retikulum Endoplasma menggunakan selubung protein COPI.">
+          <p class="quiz-question">13. Retrograde transport dari Golgi ke ER menggunakan coat protein...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="false">COPII</button>
+            <button class="quiz-opt" data-correct="true">COPI</button>
+            <button class="quiz-opt" data-correct="false">Klatrin saja</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 14 -->
+        <div class="quiz-item" data-expl="Granula sekretori pada sekresi teregulasi menunggu rangsangan eksternal (sinyal hormonal atau lonjakan Ca²⁺ sitosol) sebelum mengalami eksositosis.">
+          <p class="quiz-question">14. Vesikel secretory granule menyimpan protein regulasi seperti insulin, zymogen pencernaan, atau neurotransmitter hingga ada sinyal...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Pemicu stimulus (cth: influks ion Ca²⁺ / sinyal hormon)</button>
+            <button class="quiz-opt" data-correct="false">Penurunan pH sitosol</button>
+            <button class="quiz-opt" data-correct="false">Inaktivasi total ATP</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+        <!-- Soal 15 -->
+        <div class="quiz-item" data-expl="Sekresi regulasi (regulated secretion) secara eksklusif beroperasi pada sel terspesialisasi (seperti neuron, sel eksokrin pankreas, dan sel endokrin).">
+          <p class="quiz-question">15. Constitutive secretion terjadi di semua sel eukariotik, sedangkan regulated secretion hanya di sel...</p>
+          <div class="quiz-options">
+            <button class="quiz-opt" data-correct="true">Terspesialisasi sekretori (endokrin, eksokrin, neuron)</button>
+            <button class="quiz-opt" data-correct="false">Bakteri anaerobik</button>
+            <button class="quiz-opt" data-correct="false">Tumbuhan uniseluler tanpa vakuola</button>
+          </div>
+          <div class="quiz-feedback hidden"></div>
+        </div>
+
+      </div>
+
+      <!-- Bank Soal Esai Bab 6 -->
+      <div class="essay-section">
+        <button class="essay-toggle" type="button">
+          <span>Tampilkan Bank Soal Diskusi & Esai Bab 6</span>
+          <span>▼</span>
+        </button>
+        <div class="essay-content">
+          <ol class="essay-list">
+            <li>Jelaskan spektrum modifikasi pasca-translasi dan regulasi siklus protein via proteasom 26S!</li>
+            <li>Bandingkan rute sekresi protein klasik vs non-klasik (cth: IL-1beta tanpa signal peptide)!</li>
+            <li>Jelaskan biogenesis eksosom: pembentukan ILV via ESCRT machinery hingga eksositosis MVB!</li>
+            <li>Apa fungsi biologis vesikel ekstraseluler dalam komunikasi seluler dan metastasis tumor?</li>
+            <li>Jelaskan mekanisme penyortiran (sorting) protein di TGN menuju kompartemen yang berbeda!</li>
+            <li>Bagaimana protein membran integral multi-pass disisipkan ke lipid bilayer melalui Sec61?</li>
+            <li>Jelaskan peranan sensor kalsium synaptotagmin dan kompleksin dalam fusi granula sekretori!</li>
+            <li>Mengapa zimogen disintesis dalam bentuk inaktif? Jelaskan pematangan proteolitiknya!</li>
+            <li>Jelaskan siklus kontrol kualitas calnexin/calreticulin terhadap misfolded protein di lumen ER!</li>
+            <li>Analisis aplikasi nanoteknologi: keunggulan eksosom alami dibanding nanopartikel sintetis sebagai drug carrier!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Tooltip Glosarium Pop-up -->
+  <div id="glossaryTooltip" class="glossary-tooltip" role="tooltip"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Modul Pembelajaran & Evaluasi Biologi Seluler &copy; 2026</p>
+    </div>
+  </footer>
+
+  <!-- Logika JavaScript Interaktif -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Menu Navigasi
+      const menuToggle = document.getElementById('menuToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('show');
+        });
+
+        navLinks.querySelectorAll('.nav-item').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('show');
+          });
+        });
+      }
+
+      // 2. Glosarium Interaktif Pop-up
+      const tooltip = document.getElementById('glossaryTooltip');
+      const terms = document.querySelectorAll('.glossary-term');
+
+      terms.forEach(term => {
+        const renderTooltip = (e) => {
+          const text = term.getAttribute('data-def');
+          if (!text) return;
+
+          tooltip.textContent = text;
+          tooltip.style.display = 'block';
+
+          let x = e.clientX + 10;
+          let y = e.clientY + 15;
+
+          if (x + 280 > window.innerWidth) {
+            x = window.innerWidth - 290;
+          }
+
+          tooltip.style.left = `${x}px`;
+          tooltip.style.top = `${y}px`;
+        };
+
+        term.addEventListener('mouseenter', renderTooltip);
+        term.addEventListener('mousemove', renderTooltip);
+        term.addEventListener('mouseleave', () => {
+          tooltip.style.display = 'none';
+        });
+        term.addEventListener('click', (e) => {
+          e.stopPropagation();
+          renderTooltip(e);
+        });
+      });
+
+      document.addEventListener('click', () => {
+        if (tooltip) tooltip.style.display = 'none';
+      });
+
+      // 3. Engine Kuis Interaktif dengan Umpan Balik Instan (Menangani ke-90 Soal)
+      const quizItems = document.querySelectorAll('.quiz-item');
+
+      quizItems.forEach(item => {
+        const buttons = item.querySelectorAll('.quiz-opt');
+        const feedback = item.querySelector('.quiz-feedback');
+        const explanation = item.getAttribute('data-expl');
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const isCorrect = btn.getAttribute('data-correct') === 'true';
+
+            // Kunci semua opsi tombol setelah dipilih
+            buttons.forEach(b => {
+              b.disabled = true;
+              if (b.getAttribute('data-correct') === 'true') {
+                b.classList.add('correct');
+              }
+            });
+
+            feedback.classList.remove('hidden', 'success', 'error');
+
+            if (isCorrect) {
+              btn.classList.add('correct');
+              feedback.classList.add('success');
+              feedback.innerHTML = `<strong>Tepat!</strong> ${explanation}`;
+            } else {
+              btn.classList.add('wrong');
+              feedback.classList.add('error');
+              feedback.innerHTML = `<strong>Kurang tepat.</strong> ${explanation}`;
+            }
+          });
+        });
+      });
+
+      // 4. Akordion Panel Soal Esai
+      const essayToggles = document.querySelectorAll('.essay-toggle');
+
+      essayToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          content.classList.toggle('open');
+          const indicator = toggle.querySelector('span:last-child');
+          if (content.classList.contains('open')) {
+            indicator.textContent = '▲';
+          } else {
+            indicator.textContent = '▼';
+          }
+        });
+      });
+
+      // 5. ScrollSpy Navigasi Aktif
+      const sections = document.querySelectorAll('.chapter-card');
+      const navItems = document.querySelectorAll('.nav-item');
+
+      window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+        sections.forEach(section => {
+          const top = section.offsetTop - 140;
+          if (scrollPosition >= top) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navItems.forEach(navLink => {
+          navLink.classList.remove('active');
+          if (navLink.getAttribute('href') === `#${currentSectionId}`) {
+            navLink.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
